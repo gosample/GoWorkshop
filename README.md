@@ -14,19 +14,11 @@ The application consists of the following application services:
 |----------|-------|-------------------------------|--------------------------------------|
 | users    | 50000 | Provides users information    | CreateUser                           |
 | list     | 50001 | Manages items in todo lists   | CreateItem, GetUserItems, DeleteItem |
-| notifier | 50002 | Send email notifications      | NewUser                              |
+| notifier | 50002 | Send email notifications      | Email                                |
 
 Client web application is working on [http://127.0.0.1:3030](http://127.0.0.1:3030).
 
 ![diagram2](http://drive.google.com/uc?export=view&id=0B4XdNdo_XoQDQ2ZRQl9fb1lZejg)
-
-### Workshop task
-
- - Create `notifier` service, can be copied from `users` or `list` and modified.
- - Add `notifier` do `docker-compose.yml`, also add it to `users`'s options: `depends_on`, `links`.
- - Implement server in `notifier/server/server.go`. Use `shared` package, it's already has a function `SendEmail` to send email by SMTP.
- - Call `notifier` from `users` service to send simple notification to user's email address after account is created by `CreateUser` procedure.
- - Run `docker-compose build notifier users` to build new images.
 
 ### Requirements
 
